@@ -1,0 +1,31 @@
+namespace: taskflow-dev
+
+backend:
+  image:
+    repository: 652310866649.dkr.ecr.ap-south-1.amazonaws.com/taskflow/backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicas: 2
+  resources:
+    requests: { cpu: 100m, memory: 128Mi }
+    limits:   { cpu: 500m, memory: 512Mi }
+  service:
+    port: 3000
+  probes:
+    liveness:  { path: /health, initialDelay: 10, period: 20 }
+    readiness: { path: /ready,  initialDelay: 5,  period: 10 }
+
+frontend:
+  image:
+    repository: 652310866649.dkr.ecr.ap-south-1.amazonaws.com/taskflow/frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicas: 2
+  resources:
+    requests: { cpu: 50m, memory: 64Mi }
+    limits:   { cpu: 200m, memory: 256Mi }
+  service:
+    port: 80
+
+ingress:
+  enabled: false

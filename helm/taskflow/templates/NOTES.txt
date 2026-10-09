@@ -1,0 +1,2 @@
+TaskFlow deployed to {{ .Values.namespace }}.
+Port-forward: kubectl port-forward -n {{ .Values.namespace }} svc/taskflow-frontend 8080:80

@@ -1,0 +1,5 @@
+namespace: taskflow-dev
+backend:
+  replicas: 2
+frontend:
+  replicas: 2

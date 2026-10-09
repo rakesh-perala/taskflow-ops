@@ -30,3 +30,7 @@ output "ecr_backend_url" {
 output "ecr_frontend_url" {
   value = module.eks.ecr_frontend_url
 }
+output "github_actions_role_arn" {
+  value       = module.github_oidc.role_arn
+  description = "IAM role ARN for GitHub Actions"
+}
