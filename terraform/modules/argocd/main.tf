@@ -25,34 +25,6 @@ resource "helm_release" "argocd" {
   })]
 }
 
-resource "kubernetes_manifest" "root_app" {
-  manifest = {
-    apiVersion = "argoproj.io/v1alpha1"
-    kind       = "Application"
-    metadata = {
-      name      = "taskflow-root"
-      namespace = local.argocd_namespace
-    }
-    spec = {
-      project = "default"
-      source = {
-        repoURL        = "https://github.com/${var.github_org}/${var.github_repo}.git"
-        targetRevision = "main"
-        path           = "argocd/applications"
-      }
-      destination = {
-        server    = "https://kubernetes.default.svc"
-        namespace = local.argocd_namespace
-      }
-      syncPolicy = {
-        automated = {
-          prune    = true
-          selfHeal = true
-        }
-        syncOptions = ["CreateNamespace=true"]
-      }
-    }
-  }
-
-  depends_on = [helm_release.argocd]
-}
+# Note: ArgoCD Application manifests (argocd/applications/*.yaml)
+# are applied AFTER terraform apply completes, using kubectl.
+# See project README for post-apply steps.
