@@ -42,3 +42,50 @@ terraform.rc
 # Optional: ignore plan files saved before destroying Terraform configuration
 # Uncomment the line below if you want to ignore planout files.
 # planout
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+!*.tfvars.example
+.terraform.lock.hcl
+crash.log
+crash.*.log
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI config
+.terraformrc
+terraform.rc
+
+# Env
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+crash.log
+
+# Sensitive
+*.tfvars
+!*.tfvars.example
+.env
+.env.*
