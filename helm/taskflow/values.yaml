@@ -3,7 +3,7 @@ namespace: taskflow-dev
 backend:
   image:
     repository: 652310866649.dkr.ecr.ap-south-1.amazonaws.com/taskflow/backend
-    tag: b60c4bc
+    tag: b60c4bc7d97bd5e5f76faf3167701880175c0750
     pullPolicy: IfNotPresent
   replicas: 2
   resources:
@@ -18,7 +18,7 @@ backend:
 frontend:
   image:
     repository: 652310866649.dkr.ecr.ap-south-1.amazonaws.com/taskflow/frontend
-    tag: b60c4bc
+    tag: b60c4bc7d97bd5e5f76faf3167701880175c0750
     pullPolicy: IfNotPresent
   replicas: 2
   resources:
